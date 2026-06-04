@@ -220,10 +220,15 @@
         });
         const result = await response.json();
         if (result.success) {
-          status.textContent = 'Thank you! Your details have been submitted successfully. / ಕೃತಜ್ಞತೆಗಳು! ನಿಮ್ಮ ವಿವರಗಳು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿವೆ.';
-          status.className = 'text-sm font-medium text-center py-3 px-4 rounded-lg bg-green-100 text-green-800 block';
-          e.target.reset();
-        } else {
+  status.textContent = 'Thank you! Redirecting to Rules & Regulations...';
+  status.className = 'text-sm font-medium text-center py-3 px-4 rounded-lg bg-green-100 text-green-800 block';
+
+  e.target.reset();
+
+  setTimeout(() => {
+    window.location.href = "rules.html";
+  }, 1500); // redirects after 1.5 seconds
+} else {
           throw new Error(result.message || 'Submission failed');
         }
       } catch (err) {
