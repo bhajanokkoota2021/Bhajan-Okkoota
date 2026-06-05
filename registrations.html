@@ -103,9 +103,40 @@
           <p class="text-xs text-orange-600 mt-3 font-medium">* Exactly 10 members required. / ಕನಿಷ್ಠ 10 ಸದಸ್ಯರ ಅಗತ್ಯವಿದೆ.</p>
         </div>
       </div>
+      <!-- NEW: Video Upload Section -->
       <div class="bg-white rounded-3xl shadow-xl border border-orange-100 overflow-hidden">
         <div class="bg-gradient-to-r from-orange-50 to-amber-50 px-8 py-5 border-b border-orange-100 flex items-center gap-3">
           <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold">3</div>
+          <div>
+            <h2 class="text-xl font-bold text-orange-900">Bhajan Video Upload</h2>
+            <p class="text-sm text-orange-700 font-kannada">ಭಜನಾ ವೀಡಿಯೋ ಅಪ್ಲೋಡ್</p>
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="bg-orange-50 rounded-xl p-4 border border-orange-100 mb-6">
+            <p class="text-sm text-orange-800 font-medium flex items-start gap-2">
+              <i data-lucide="video" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+              <span>Please upload a horizontal video of your Mandal performing a Dasara Bhajan (7 to 10 minutes).<<br>
+              <span class="font-kannada text-orange-700">ದಾಸರ ಭಜನೆಯನ್ನು ಹಾಡುತ್ತಿರುವ 7 ರಿಂದ 10 ನಿಮಿಷಗಳ ಭಿತ್ತಿಪತ್ರ ವೀಡಿಯೋವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ.</span></span>
+            </p>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Bhajan Video / ಭಜನಾ ವೀಡಿಯೋ <span class="text-red-500">*</span></label>
+            <div class="upload-box rounded-xl p-6 text-center cursor-pointer relative" onclick="document.getElementById('bhajanVideo').click()">
+              <input type="file" id="bhajanVideo" accept="video/*" required class="hidden" onchange="handleFileSelect(this, 'videoPreview')">
+              <div id="videoPreview" class="space-y-2">
+                <i data-lucide="video" class="w-10 h-10 text-orange-400 mx-auto"></i>
+                <p class="text-sm text-slate-600 font-medium">Click to upload Bhajan video</p>
+                <p class="text-xs text-slate-400">MP4, MOV (Max 35MB)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Payment Section (now Step 4) -->
+      <div class="bg-white rounded-3xl shadow-xl border border-orange-100 overflow-hidden">
+        <div class="bg-gradient-to-r from-orange-50 to-amber-50 px-8 py-5 border-b border-orange-100 flex items-center gap-3">
+          <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold">4</div>
           <div>
             <h2 class="text-xl font-bold text-orange-900">Payment Details</h2>
             <p class="text-sm text-orange-700 font-kannada">ಪಾವತಿ ವಿವರಗಳು</p>
@@ -155,9 +186,32 @@
     </form>
   </main>
 
+  <!-- Loading / Success Overlay -->
+  <div id="loadingOverlay" class="fixed inset-0 z-[100] bg-white/95 backdrop-blur-sm flex items-center justify-center hidden">
+    <div class="text-center max-w-md px-6">
+      <div id="loadingSpinner">
+        <div class="animate-spin rounded-full h-16 w-16 border-4 border-orange-200 border-t-orange-600 mx-auto"></div>
+        <p class="mt-6 text-orange-800 font-bold text-lg">Uploading your registration...</p>
+        <p class="text-orange-600 text-sm mt-1">Please do not close this window.</p>
+        <p class="text-orange-700 font-kannada text-sm mt-2">ನೋಂದಣಿ ಅಪ್ಲೋಡ್ ಆಗುತ್ತಿದೆ... ದಯವಿಟ್ಟು ಈ ಪುಟವನ್ನು ಮುಚ್ಚಬೇಡಿ.</p>
+      </div>
+      <div id="successMessage" class="hidden">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="check-circle" class="w-10 h-10 text-green-600"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-orange-900 mb-2">Registration Submitted!</h3>
+        <p class="text-slate-600 mb-2">Your registration has been submitted. We will review it and will send you a message of confirmation.</p>
+        <p class="text-orange-700 font-kannada text-sm">ನಿಮ್ಮ ನೋಂದಣಿ ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ. ನಾವು ಅದನ್ನು ಪರಿಶೀಲಿಸಿ ದೃಢೀಕರಣ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.</p>
+        <a href="index.html" class="mt-8 inline-flex items-center gap-2 bg-orange-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-orange-700 transition-all shadow-lg">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          Go Home / ಮುಖ್ಯಪುಟಕ್ಕೆ
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
     lucide.createIcons();
-
     new QRCode(document.getElementById("qrcode"), {
       text: "upi://pay?pa=yourupi@upi&pn=BMOS&am=1000&cu=INR",
       width: 160,
@@ -166,14 +220,12 @@
       colorLight : "#ffffff",
       correctLevel : QRCode.CorrectLevel.H
     });
-
     const membersContainer = document.getElementById('membersContainer');
     const addMemberBtn = document.getElementById('addMemberBtn');
     const removeMemberBtn = document.getElementById('removeMemberBtn');
     let memberCount = 0;
     const MIN_MEMBERS = 10;
     const MAX_MEMBERS = 10;
-
     function createMemberCard(index) {
       const div = document.createElement('div');
       div.className = 'member-card bg-orange-50/50 rounded-2xl p-5 border border-orange-100 space-y-4';
@@ -212,7 +264,6 @@
       `;
       return div;
     }
-
     function renderMembers() {
       membersContainer.innerHTML = '';
       for (let i = 1; i <= memberCount; i++) {
@@ -220,10 +271,8 @@
       }
       lucide.createIcons();
     }
-
     memberCount = MIN_MEMBERS;
     renderMembers();
-
     window.handleFileSelect = function(input, previewId) {
       const previewDiv = document.getElementById(previewId);
       const container = input.closest('.upload-box');
@@ -233,7 +282,6 @@
         lucide.createIcons();
       }
     };
-
     async function resizeImage(file, maxWidth = 1200, quality = 0.8) {
       return new Promise((resolve, reject) => {
         if (!file || !file.type.startsWith('image/')) { reject(new Error('Invalid image')); return; }
@@ -256,23 +304,33 @@
         reader.readAsDataURL(file);
       });
     }
-
-    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwDlNqfk6CuiAC2floMSwN-4-oeVzNBIyYlckh0CNCOoJGw6FDlllmpJwqyKkOlYd0wog/exec';
-
+    function readFileAsBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwDlb9n9GAoDb3PStY6zFQZvgjFEugM83l_z_vD1AZNUCyD_HE8GgNFeaamrFF5xdXCsw/exec';
     document.getElementById('registrationForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+      const overlay = document.getElementById('loadingOverlay');
+      const spinner = document.getElementById('loadingSpinner');
+      const successMsg = document.getElementById('successMessage');
       const btn = document.getElementById('submitBtn');
-      const status = document.getElementById('submitStatus');
       const originalHTML = btn.innerHTML;
+
+      overlay.classList.remove('hidden');
+      spinner.classList.remove('hidden');
+      successMsg.classList.add('hidden');
       btn.disabled = true;
       btn.innerHTML = '<span class="animate-pulse">Uploading & Registering...</span>';
-      status.className = 'hidden';
 
       try {
         if (GAS_WEB_APP_URL.includes('YOUR_GAS')) {
           throw new Error('Please configure the Google Apps Script URL in the code.');
         }
-
         const payload = {
           action: 'register',
           mandalName: document.getElementById('mandalName').value.trim(),
@@ -281,8 +339,21 @@
           mobile: document.getElementById('mobile').value.trim(),
           transactionId: document.getElementById('transactionId').value.trim(),
           paymentScreenshot: '',
+          bhajanVideo: '',
           members: []
         };
+
+        const videoInput = document.getElementById('bhajanVideo');
+        if (videoInput.files && videoInput.files[0]) {
+          const vFile = videoInput.files[0];
+          const maxSize = 35 * 1024 * 1024; // 35MB to stay within GAS limits
+          if (vFile.size > maxSize) {
+            throw new Error('Video file size must not exceed 35MB. / ವೀಡಿಯೋ ಗಾತ್ರ 35MB ಗಿಂತ ಹೆಚ್ಚಿರಬಾರದು.');
+          }
+          payload.bhajanVideo = await readFileAsBase64(vFile);
+        } else {
+          throw new Error('Please upload the Bhajan video. / ದಯವಿಟ್ಟು ಭಜನಾ ವೀಡಿಯೋವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ.');
+        }
 
         const paymentInput = document.getElementById('paymentScreenshot');
         if (paymentInput.files && paymentInput.files[0]) {
@@ -301,17 +372,16 @@
         }
 
         const response = await fetch(GAS_WEB_APP_URL, {
-        method: 'POST',
-        headers: {
-         'Content-Type': 'text/plain'
-        },
-        body: JSON.stringify(payload)
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload)
         });
         const result = await response.json();
-
         if (result.success) {
-          status.textContent = 'Registration submitted successfully! / ನೋಂದಣಿ ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ!';
-          status.className = 'mb-4 text-sm font-medium text-center py-3 px-4 rounded-lg bg-green-100 text-green-800 block';
+          spinner.classList.add('hidden');
+          successMsg.classList.remove('hidden');
+          lucide.createIcons();
+
           e.target.reset();
           document.getElementById('paymentPreview').innerHTML = `
             <i data-lucide="upload-cloud" class="w-10 h-10 text-orange-400 mx-auto"></i>
@@ -319,6 +389,14 @@
             <p class="text-xs text-slate-400">JPG, PNG (Max 5MB)</p>
           `;
           document.getElementById('paymentScreenshot').closest('.upload-box').classList.remove('has-file');
+          document.getElementById('videoPreview').innerHTML = `
+            <i data-lucide="video" class="w-10 h-10 text-orange-400 mx-auto"></i>
+            <p class="text-sm text-slate-600 font-medium">Click to upload Bhajan video</p>
+            <p class="text-xs text-slate-400">MP4, MOV (Max 35MB)</p>
+          `;
+          document.getElementById('bhajanVideo').closest('.upload-box').classList.remove('has-file');
+          lucide.createIcons();
+
           memberCount = MIN_MEMBERS;
           renderMembers();
         } else {
@@ -326,6 +404,8 @@
         }
       } catch (err) {
         console.error(err);
+        overlay.classList.add('hidden');
+        const status = document.getElementById('submitStatus');
         status.textContent = err.message.includes('configure')
           ? 'Note: Google Sheets integration is pending setup. Please follow the instructions provided with the code.'
           : 'Error: ' + err.message;
