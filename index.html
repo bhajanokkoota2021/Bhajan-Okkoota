@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhajan Mandaligala Okkootada Sanstha (Regd.), Mumbai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            kannada: ['Noto Sans Kannada', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #ea580c; border-radius: 4px; }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased">
+
+  <!-- Navigation -->
+  <nav class="glass-nav fixed w-full z-50 shadow-sm border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center">
+          <div class="hidden md:block">
+            <h1 class="text-lg font-bold text-brand-800 leading-tight">Bhajan Mandaligala Okkootada Sanstha</h1>
+            <p class="text-xs text-brand-600 font-medium">(Regd.), Mumbai</p>
+          </div>
+          <div class="md:hidden">
+            <h1 class="text-base font-bold text-brand-800 leading-tight">Bhajan Mandaligala Okkootada</h1>
+          </div>
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-1">
+          <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition">About</a>
+          <a href="#founders" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition">Founders</a>
+          <a href="#managing-committee" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition">Committee</a>
+          <a href="#valaya" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition">Valaya</a>
+          <a href="#future" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition">Future</a>
+          <a href="#gallery" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition">Gallery</a>
+          <a href="#social" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition">Social</a>
+          <a href="#events" class="px-3 py-2 rounded-md text-sm font-medium text-brand-700 bg-brand-100 hover:bg-brand-200 transition">Events</a>
+          <a href="#donate" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-brand-600 hover:bg-brand-700 transition shadow-md">Donate</a>
+          <a href="#faq" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 transition">FAQ</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-700 hover:bg-brand-50 hover:text-brand-600 focus:outline-none">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-brand-100">
+      <div class="px-2 pt-2 pb-3 space-y-1 max-h-[80vh] overflow-y-auto">
+        <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">About</a>
+        <a href="#founders" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Founders</a>
+        <a href="#managing-committee" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Managing Committee</a>
+        <a href="#valaya" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Valaya Committee</a>
+        <a href="#future" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Future Development</a>
+        <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Gallery</a>
+        <a href="#social" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Social Media</a>
+        <a href="#events" class="block px-3 py-2 rounded-md text-base font-medium text-brand-700 bg-brand-50">Upcoming Events</a>
+        <a href="#donate" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-brand-600">Donations</a>
+        <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-20 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800 overflow-hidden">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="mb-8 flex justify-center">
+        <img src="https://github.com/bhajanokkoota2021/Bhajan-Okkoota/blob/main/WhatsApp%20Image%202026-05-23%20at%206.51.39%20PM.jpeg?raw=true" alt="Organization Logo" class="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover bg-white border-4 border-white/30 shadow-2xl">
+      </div>
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-brand-100 text-sm font-medium mb-6 border border-white/20">
+        <i data-lucide="music" class="w-4 h-4"></i>
+        <span>Preserving Our Cultural Heritage Through Bhajans</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6">
+        Bhajan Mandaligala<br>
+        <span class="text-brand-200">Okkootada Sanstha</span>
+      </h1>
+      <p class="text-xl text-brand-100 max-w-2xl mx-auto mb-10">
+        (Regd.), Mumbai — Uniting communities through devotion, music, and spiritual harmony since our founding.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#events" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white text-brand-700 font-bold text-lg shadow-lg hover:bg-brand-50 transition transform hover:-translate-y-1">
+          <i data-lucide="calendar" class="w-5 h-5 mr-2"></i>
+          Upcoming Events
+        </a>
+        <a href="#donate" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-brand-500/20 backdrop-blur-sm text-white border border-white/30 font-bold text-lg hover:bg-brand-500/30 transition transform hover:-translate-y-1">
+          <i data-lucide="heart" class="w-5 h-5 mr-2"></i>
+          Support Us
+        </a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Appeal -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm">Who We Are</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900">About & Appeal</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-8 fade-in">
+        <p class="text-lg text-gray-600 leading-relaxed text-center">
+          In the year 2021, during a Bhajana training camp held at Shri Kshetra Dharmasthala, two devotees from Mumbai city, Shri Nagesh Suvarna and Shri Ravindra Shanti, participated in the camp and gained valuable knowledge about disciplined living and the structured system of Bhajana, which includes melody (Raga), rhythm (Tala), tempo (Laya), and spiritual discipline.
+
+Inspired by this experience, they felt a strong responsibility to spread this knowledge among the Bhajana devotees of Mumbai and to motivate the younger generation towards the field of Bhajana and spirituality.
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed text-center">
+          With this long-term vision, they approached Shri Dattatreya Durgambika Temple, one of the well-known religious centers of Mumbai, and met Dharmadarshi Dev B. Poojary, believing him to be the right person to lead this noble initiative.
+
+When the proposal for establishing the Maharashtra unit of Dharmasthala Shri Manjunatheshwara Bhajana Parishad Maharashtra Unit was presented, Shri Dev B. Poojary advised that more Bhajana devotees should be united and proper discussions should be held before implementing the vision.
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed text-center">
+          Following his guidance, respected members including V.K. Suvarna Padubidri, Shri Sridhar Shetty, Shri Shantaram Putran, Shri Chandrahas Rai, Shri Vaman Suvarna, and Shri Kusha Poojary joined together for several rounds of discussions and meetings.
+
+As a result, an organization named Bhajana Mandaligala Okkootada Samsthe (Federation of Bhajana Mandalis) was formed with the aim of bringing together Tulu-Kannada Bhajana Mandalis across Mumbai and its suburban regions.
+
+The organization was divided into five zones for better coordination and was officially registered under the Maharashtra Charity Commissioner’s office as a Charitable Trust and Public Trust. 
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed text-center">
+          Today, many Bhajana Mandalis from all five zones have become registered members of the organization. The institution is actively conducting Bhajana training camps and encouraging especially the younger generation to participate in Bhajana and cultural activities.
+
+Senior Bhajana practitioners along with enthusiastic youth are working tirelessly towards this mission. Training camps are being conducted regularly across all five zones, with the core objective of ensuring that Bhajana becomes a part of every household.
+
+Apart from spiritual and Bhajana-related activities, the organization also aims to provide social, educational, and financial support services to the registered Bhajana devotees and their family members.
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed text-center">
+          For any organization to grow and successfully implement its objectives, the support and contribution of donors and well-wishers are extremely essential.
+
+Therefore, with great hope, faith, and humility, we sincerely request religious thinkers, respected dignitaries, social organizations, and generous well-wishers to extend their support and encouragement towards this noble service initiative.
+        </p>
+              </div>
+    </div>
+  </section>
+
+  <!-- Founders -->
+  <section id="founders" class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm">Our Pillars</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Founder Members</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Founder 1 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/people/320x240/1" alt="DEV B. POOJARY" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-bold text-gray-900">Dharmadarshi DEV B. POOJARY</h3>
+            <p class="text-brand-600 font-medium mt-1">Founder Member</p>
+          </div>
+        </div>
+        <!-- Founder 2 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/people/320x240/2" alt="NAGESH SUVARNA" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-bold text-gray-900">NAGESH SUVARNA</h3>
+            <p class="text-brand-600 font-medium mt-1">Founder Member</p>
+          </div>
+        </div>
+        <!-- Founder 3 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/people/320x240/3" alt="RAVINDRA SHANTI" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-bold text-gray-900">RAVINDRA SHANTI</h3>
+            <p class="text-brand-600 font-medium mt-1">Founder Member</p>
+          </div>
+        </div>
+        <!-- Founder 4 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/people/320x240/4" alt="V. K. SUVARNA" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-bold text-gray-900">V. K. SUVARNA</h3>
+            <p class="text-brand-600 font-medium mt-1">Founder Member</p>
+          </div>
+        </div>
+        <!-- Founder 5 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/people/320x240/5" alt="SHRIDHAR R. SHETTY" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-bold text-gray-900">SHRIDHAR R. SHETTY</h3>
+            <p class="text-brand-600 font-medium mt-1">Founder Member</p>
+          </div>
+        </div>
+        <!-- Founder 6 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/people/320x240/6" alt="SHANTARAM PUTRAN" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-bold text-gray-900">SHANTARAM PUTRAN</h3>
+            <p class="text-brand-600 font-medium mt-1">Founder Member</p>
+          </div>
+        </div>
+        <!-- Founder 7 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/people/320x240/7" alt="CHANDRASH RAI" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-bold text-gray-900">CHANDRASH RAI</h3>
+            <p class="text-brand-600 font-medium mt-1">Founder Member</p>
+          </div>
+        </div>
+        <!-- Founder 8 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/people/320x240/8" alt="VAMAN SUVARNA" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-bold text-gray-900">VAMAN SUVARNA</h3>
+            <p class="text-brand-600 font-medium mt-1">Founder Member</p>
+          </div>
+        </div>
+        <!-- Founder 9 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/people/320x240/9" alt="KUSHA POOJARY" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-bold text-gray-900">KUSHA POOJARY</h3>
+            <p class="text-brand-600 font-medium mt-1">Founder Member</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Managing Committee -->
+  <section id="managing-committee" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm">Leadership</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Managing Committee</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+      <!-- Office Bearers -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-brand-200 hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-40 bg-gray-200">
+            <img src="http://static.photos/people/320x240/11" alt="DEV B. POOJARY" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-base font-bold text-gray-900">Dharmadarshi DEV B. POOJARY</h3>
+            <p class="text-brand-600 font-semibold text-sm mt-1 uppercase tracking-wide">President</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-brand-200 hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-40 bg-gray-200">
+            <img src="http://static.photos/people/320x240/12" alt="V. K. SUVARNA" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-base font-bold text-gray-900">V. K. SUVARNA</h3>
+            <p class="text-brand-600 font-semibold text-sm mt-1 uppercase tracking-wide">Vice President</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-brand-200 hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-40 bg-gray-200">
+            <img src="http://static.photos/people/320x240/13" alt="SHRIDHAR R. SHETTY" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-base font-bold text-gray-900">SHRIDHAR R. SHETTY</h3>
+            <p class="text-brand-600 font-semibold text-sm mt-1 uppercase tracking-wide">Vice President</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-brand-200 hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-40 bg-gray-200">
+            <img src="http://static.photos/people/320x240/14" alt="RAVINDRA SHANTI" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-base font-bold text-gray-900">RAVINDRA SHANTI</h3>
+            <p class="text-brand-600 font-semibold text-sm mt-1 uppercase tracking-wide">Hon. Gen. Secretary</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-brand-200 hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-40 bg-gray-200">
+            <img src="http://static.photos/people/320x240/15" alt="PRAFUL SHRIYAN" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-base font-bold text-gray-900">PRAFUL SHRIYAN</h3>
+            <p class="text-brand-600 font-semibold text-sm mt-1 uppercase tracking-wide">Jt. Secretary</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-brand-200 hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-40 bg-gray-200">
+            <img src="http://static.photos/people/320x240/16" alt="SUNDAR N. SHETTY" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-base font-bold text-gray-900">SUNDAR N. SHETTY</h3>
+            <p class="text-brand-600 font-semibold text-sm mt-1 uppercase tracking-wide">Hon. Treasurer</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-brand-200 hover:shadow-xl transition transform hover:-translate-y-1 fade-in">
+          <div class="h-40 bg-gray-200">
+            <img src="http://static.photos/people/320x240/17" alt="KUSHA R. POOJARY" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-base font-bold text-gray-900">KUSHA R. POOJARY</h3>
+            <p class="text-brand-600 font-semibold text-sm mt-1 uppercase tracking-wide">Jt. Treasurer</p>
+          </div>
+        </div>
+      </div>
+      <!-- Committee Members -->
+      <h3 class="text-2xl font-bold text-center text-gray-800 mb-8 fade-in">Committee Members</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="bg-brand-50 rounded-xl p-3 text-center border border-brand-100 hover:bg-white hover:shadow-md transition fade-in">
+          <div class="w-16 h-16 mx-auto rounded-full bg-gray-300 mb-3 overflow-hidden">
+            <img src="http://static.photos/people/200x200/21" alt="VAMAN SUVARNA" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">VAMAN SUVARNA</h4>
+          <p class="text-xs text-brand-600 font-medium mt-1">Committee Member</p>
+        </div>
+        <div class="bg-brand-50 rounded-xl p-3 text-center border border-brand-100 hover:bg-white hover:shadow-md transition fade-in">
+          <div class="w-16 h-16 mx-auto rounded-full bg-gray-300 mb-3 overflow-hidden">
+            <img src="http://static.photos/people/200x200/22" alt="DHANANJAY P. SHETTY" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">DHANANJAY P. SHETTY</h4>
+          <p class="text-xs text-brand-600 font-medium mt-1">Committee Member</p>
+        </div>
+        <div class="bg-brand-50 rounded-xl p-3 text-center border border-brand-100 hover:bg-white hover:shadow-md transition fade-in">
+          <div class="w-16 h-16 mx-auto rounded-full bg-gray-300 mb-3 overflow-hidden">
+            <img src="http://static.photos/people/200x200/23" alt="LOHITAKSHA" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">LOHITAKSHA</h4>
+          <p class="text-xs text-brand-600 font-medium mt-1">Committee Member</p>
+        </div>
+        <div class="bg-brand-50 rounded-xl p-3 text-center border border-brand-100 hover:bg-white hover:shadow-md transition fade-in">
+          <div class="w-16 h-16 mx-auto rounded-full bg-gray-300 mb-3 overflow-hidden">
+            <img src="http://static.photos/people/200x200/24" alt="ASHOK SHETTY" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">ASHOK SHETTY</h4>
+          <p class="text-xs text-brand-600 font-medium mt-1">Committee Member</p>
+        </div>
+        <div class="bg-brand-50 rounded-xl p-3 text-center border border-brand-100 hover:bg-white hover:shadow-md transition fade-in">
+          <div class="w-16 h-16 mx-auto rounded-full bg-gray-300 mb-3 overflow-hidden">
+            <img src="http://static.photos/people/200x200/25" alt="P. K. SALIAN" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">P. K. SALIAN</h4>
+          <p class="text-xs text-brand-600 font-medium mt-1">Committee Member</p>
+        </div>
+        <div class="bg-brand-50 rounded-xl p-3 text-center border border-brand-100 hover:bg-white hover:shadow-md transition fade-in">
+          <div class="w-16 h-16 mx-auto rounded-full bg-gray-300 mb-3 overflow-hidden">
+            <img src="http://static.photos/people/200x200/26" alt="GANESH BANGERA" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">GANESH BANGERA</h4>
+          <p class="text-xs text-brand-600 font-medium mt-1">Committee Member</p>
+        </div>
+        <div class="bg-brand-50 rounded-xl p-3 text-center border border-brand-100 hover:bg-white hover:shadow-md transition fade-in">
+          <div class="w-16 h-16 mx-auto rounded-full bg-gray-300 mb-3 overflow-hidden">
+            <img src="http://static.photos/people/200x200/27" alt="RAJA POONJA" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-bold text-gray-900 text-sm">RAJA POONJA</h4>
+          <p class="text-xs text-brand-600 font-medium mt-1">Committee Member</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valaya (Zonal) Committee -->
+  <section id="valaya" class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm">Regional Network</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Valaya (Zonal) Committee</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Our organization spans across multiple zones in and around Mumbai, ensuring active participation and representation from all regions.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">SOIN TO THANE</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">KALVA</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">KARJAT</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">KASARA</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">CHEMBUR</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">NAVI MUMBAI</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">CHURCHGATE</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">BORIVALI</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">DAISAR</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border border-brand-100 fade-in">
+          <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 text-brand-700">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-gray-900">DANU</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Development -->
+  <section id="future" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm">Our Vision</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Future Development</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white rounded-2xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-lg transition fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/culture/640x360/101" alt="Cultural Center" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="w-14 h-14 bg-brand-600 rounded-xl flex items-center justify-center text-white mb-4">
+              <i data-lucide="building-2" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Cultural Center</h3>
+            <p class="text-gray-600 leading-relaxed">Establishing a dedicated cultural center for Bhajan practice, workshops, and community gatherings to nurture young talent.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-lg transition fade-in">
+          <div class="h-48 bg-gray-200">
+            <img src="http://static.photos/education/640x360/102" alt="Youth Training" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="w-14 h-14 bg-brand-600 rounded-xl flex items-center justify-center text-white mb-4">
+              <i data-lucide="graduation-cap" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Youth Training Programs</h3>
+            <p class="text-gray-600 leading-relaxed">Launching structured training programs for youth to learn traditional Bhajans, instruments, and classical music fundamentals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="py-20 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-400 font-semibold tracking-wider uppercase text-sm">Memories</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold">Gallery</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="group relative overflow-hidden rounded-xl fade-in">
+          <img src="http://static.photos/event/640x360/31" alt="Gallery 1" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+            <span class="text-white font-medium">Bhajan Event</span>
+          </div>
+        </div>
+        <div class="group relative overflow-hidden rounded-xl fade-in">
+          <img src="http://static.photos/event/640x360/32" alt="Gallery 2" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+            <span class="text-white font-medium">Community Gathering</span>
+          </div>
+        </div>
+        <div class="group relative overflow-hidden rounded-xl fade-in">
+          <img src="http://static.photos/event/640x360/33" alt="Gallery 3" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+            <span class="text-white font-medium">Annual Function</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media -->
+  <section id="social" class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm">Connect With Us</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Social Media</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="https://facebook.com" target="_blank" class="flex items-center gap-3 px-8 py-4 bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 border border-gray-100 w-full sm:w-auto fade-in">
+          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
+            <i data-lucide="facebook" class="w-6 h-6"></i>
+          </div>
+          <div class="text-left">
+            <h4 class="font-bold text-gray-900">Facebook</h4>
+            <p class="text-sm text-gray-500">Follow our page</p>
+          </div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="flex items-center gap-3 px-8 py-4 bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 border border-gray-100 w-full sm:w-auto fade-in">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white">
+            <i data-lucide="instagram" class="w-6 h-6"></i>
+          </div>
+          <div class="text-left">
+            <h4 class="font-bold text-gray-900">Instagram</h4>
+            <p class="text-sm text-gray-500">See our updates</p>
+          </div>
+        </a>
+        <a href="https://youtube.com" target="_blank" class="flex items-center gap-3 px-8 py-4 bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 border border-gray-100 w-full sm:w-auto fade-in">
+          <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white">
+            <i data-lucide="youtube" class="w-6 h-6"></i>
+          </div>
+          <div class="text-left">
+            <h4 class="font-bold text-gray-900">YouTube</h4>
+            <p class="text-sm text-gray-500">Watch our videos</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Event -->
+  <section id="events" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm">Mark Your Calendar</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Upcoming Event</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+      <a href="first.html" class="block max-w-4xl mx-auto group fade-in">
+        <div class="relative bg-gradient-to-br from-brand-600 to-brand-800 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition transform group-hover:scale-[1.01]">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-400/20 rounded-full -ml-32 -mb-32 blur-3xl"></div>
+
+          <div class="relative p-8 md:p-12 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
+              <i data-lucide="calendar-days" class="w-4 h-4"></i>
+              <span>Coming Soon</span>
+            </div>
+
+            <h3 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+              Maharashtra State Level<br>Bhajan Competition 2026
+            </h3>
+
+            <p class="text-2xl md:text-4xl font-bold text-brand-200 kannada-font mt-6 mb-8">
+              ಮಹಾರಾಷ್ಟ್ರ ರಾಜ್ಯ ಮಟ್ಟದ ಭಜನ ಸ್ಪರ್ಧೆ ೨೦೨೬
+            </p>
+
+            <div class="inline-flex items-center gap-2 bg-white text-brand-700 px-8 py-4 rounded-xl font-bold text-lg shadow-lg group-hover:bg-brand-50 transition">
+              <span>View Details</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition"></i>
+            </div>
+
+            <p class="mt-6 text-brand-100 text-sm">Click to know more about registration, schedule, and prizes</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Donations & Support -->
+  <section id="donate" class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm">Support Our Cause</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Donations & Support</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Your generous contributions help us organize cultural events, support artists, and preserve our rich devotional heritage.</p>
+      </div>
+      <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-brand-100 fade-in">
+        <div class="bg-brand-600 p-6 text-center">
+          <i data-lucide="landmark" class="w-10 h-10 text-white mx-auto mb-2"></i>
+          <h3 class="text-2xl font-bold text-white">Bank Details</h3>
+          <p class="text-brand-100 mt-1">Bharat Bank</p>
+        </div>
+        <div class="p-8 md:p-10 space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+              <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Account Name</p>
+              <p class="text-lg font-bold text-gray-900 mt-1">BHAJAN MANDALIGALA OKKOOTADA SANSTHA</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+              <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Account Number</p>
+              <p class="text-lg font-bold text-gray-900 mt-1 font-mono">000810100163794</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+              <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">IFSC Code</p>
+              <p class="text-lg font-bold text-gray-900 mt-1 font-mono">BCBM0000009</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+              <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">SWIFT ID</p>
+              <p class="text-lg font-bold text-gray-900 mt-1 font-mono">BCMLINBB</p>
+            </div>
+          </div>
+          <div class="bg-brand-50 rounded-xl p-5 border border-brand-100 text-center">
+            <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Branch</p>
+            <p class="text-lg font-bold text-brand-800 mt-1">ANDHERI (East)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm">Got Questions?</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Frequently Asked Questions</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden fade-in">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left focus:outline-none hover:bg-gray-50 transition">
+            <span class="text-lg font-semibold text-gray-900">How can I participate in the Maharashtra State Level Bhajan Competition?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 faq-icon transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-gray-600 leading-relaxed">
+            Registration details for the competition will be announced soon. Please click on the Upcoming Event section or the floating button for more information about eligibility, categories, and registration process.
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden fade-in">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left focus:outline-none hover:bg-gray-50 transition">
+            <span class="text-lg font-semibold text-gray-900">Can I donate from outside India?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 faq-icon transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-gray-600 leading-relaxed">
+            Yes, we accept international donations through our SWIFT code. Please use the bank details provided in the Donations section. All donations are used for cultural activities and community welfare programs.
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden fade-in">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left focus:outline-none hover:bg-gray-50 transition">
+            <span class="text-lg font-semibold text-gray-900">Which areas does the organization cover?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 faq-icon transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-gray-600 leading-relaxed">
+            Our Valaya (Zonal) Committees cover Soin to Thane, Kalva, Karjat, Kasara, Chembur, Navi Mumbai, Churchgate, Borivali, Daisar, and Danu. We are continuously expanding to serve more communities.
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden fade-in">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left focus:outline-none hover:bg-gray-50 transition">
+            <span class="text-lg font-semibold text-gray-900">How can I contact the Managing Committee?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 faq-icon transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-gray-600 leading-relaxed">
+            You can call us at 9152242599. You can also email us at bhajanokkoota2021@gmail.com.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-20 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-brand-400 font-semibold tracking-wider uppercase text-sm">Get in Touch</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold">Contact Information</h2>
+        <div class="mt-4 w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/10 transition fade-in">
+          <div class="w-14 h-14 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="map-pin" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Address</h3>
+          <p class="text-gray-300 leading-relaxed"></p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/10 transition fade-in">
+          <div class="w-14 h-14 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="phone" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Phone</h3>
+          <p class="text-gray-300 leading-relaxed">9152242599</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/10 transition fade-in">
+          <div class="w-14 h-14 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="mail" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Email</h3>
+          <p class="text-gray-300 leading-relaxed break-words">bhajanokkoota2021@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 text-gray-400 py-12 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-center md:text-left">
+          <h3 class="text-xl font-bold text-white mb-1">Bhajan Mandaligala Okkootada Sanstha</h3>
+          <p class="text-sm">(Regd.), Mumbai </p>
+        </div>
+        <div class="flex gap-4">
+          <a href="#about" class="hover:text-white transition">About</a>
+          <a href="#events" class="hover:text-white transition">Events</a>
+          <a href="#donate" class="hover:text-white transition">Donate</a>
+          <a href="#contact" class="hover:text-white transition">Contact</a>
+        </div>
+      </div>
+      <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
+        <p> Bhajan Mandaligala Okkootada Sanstha. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Button - Maharashtra State Level Bhajan Competition 2026 -->
+  <a href="first.html" class="fixed left-4 bottom-4 z-40 group">
+    <div class="bg-brand-600 text-white pl-3 pr-4 py-3 rounded-full shadow-lg hover:bg-brand-700 transition flex items-center gap-2 animate-pulse hover:animate-none">
+      <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+        <i data-lucide="trophy" class="w-4 h-4"></i>
+      </div>
+      <div class="leading-tight">
+        <div class="text-xs font-bold uppercase tracking-wider">Maharashtra State</div>
+        <div class="text-[10px] opacity-90">Bhajan Competition 2026</div>
+      </div>
+    </div>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
