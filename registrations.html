@@ -100,7 +100,7 @@
               <i data-lucide="minus-circle" class="w-5 h-5"></i> Remove Member / ತೆಗೆಯಿರಿ
             </button>
           </div>
-          <p class="text-xs text-orange-600 mt-3 font-medium">* Exactly 10 members required. / ಕನಿಷ್ಠ 10 ಸದಸ್ಯರ ಅಗತ್ಯವಿದೆ.</p>
+          <p class="text-xs text-orange-600 mt-3 font-medium">* Participants must have a minimum of 8 and maximum of 10 members. /ಭಾಗವಹಿಸುವವರು ಕನಿಷ್ಠ 8 ಮತ್ತು ಗರಿಷ್ಠ 10 ಸದಸ್ಯರನ್ನು ಹೊಂದಿರಬೇಕು.</p>
         </div>
       </div>
       <!-- NEW: Video Upload Section -->
@@ -116,8 +116,8 @@
           <div class="bg-orange-50 rounded-xl p-4 border border-orange-100 mb-6">
             <p class="text-sm text-orange-800 font-medium flex items-start gap-2">
               <i data-lucide="video" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
-              <span>Please upload a horizontal video of your Mandal performing a Dasara Bhajan (7 to 10 minutes).<<br>
-              <span class="font-kannada text-orange-700">ದಾಸರ ಭಜನೆಯನ್ನು ಹಾಡುತ್ತಿರುವ 7 ರಿಂದ 10 ನಿಮಿಷಗಳ ಭಿತ್ತಿಪತ್ರ ವೀಡಿಯೋವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ.</span></span>
+              <span>Please upload a horizontal video of your Mandal performing a Dasara Bhajan (5 minutes).<<br>
+              <span class="font-kannada text-orange-700">ದಾಸರ ಭಜನೆಯನ್ನು ಹಾಡುತ್ತಿರುವ 5 ನಿಮಿಷಗಳ ವೀಡಿಯೋವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ.</span></span>
             </p>
           </div>
           <div>
@@ -127,7 +127,7 @@
               <div id="videoPreview" class="space-y-2">
                 <i data-lucide="video" class="w-10 h-10 text-orange-400 mx-auto"></i>
                 <p class="text-sm text-slate-600 font-medium">Click to upload Bhajan video</p>
-                <p class="text-xs text-slate-400">MP4, MOV (Max 35MB)</p>
+                <p class="text-xs text-slate-400">MP4, MOV (Max 60MB)</p>
               </div>
             </div>
           </div>
@@ -392,7 +392,7 @@
           document.getElementById('videoPreview').innerHTML = `
             <i data-lucide="video" class="w-10 h-10 text-orange-400 mx-auto"></i>
             <p class="text-sm text-slate-600 font-medium">Click to upload Bhajan video</p>
-            <p class="text-xs text-slate-400">MP4, MOV (Max 35MB)</p>
+            <p class="text-xs text-slate-400">MP4, MOV (Max 60MB)</p>
           `;
           document.getElementById('bhajanVideo').closest('.upload-box').classList.remove('has-file');
           lucide.createIcons();
