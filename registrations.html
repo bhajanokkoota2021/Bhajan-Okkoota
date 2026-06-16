@@ -303,7 +303,7 @@
       }
       lucide.createIcons();
     }
-    memberCount = MIN_MEMBERS;
+    memberCount = 10;
     renderMembers();
     window.handleFileSelect = function(input, previewId) {
       const previewDiv = document.getElementById(previewId);
@@ -429,7 +429,7 @@
           document.getElementById('bhajanVideo').closest('.upload-box').classList.remove('has-file');
           lucide.createIcons();
 
-          memberCount = MIN_MEMBERS;
+          memberCount = 10;
           renderMembers();
         } else {
           throw new Error(result.message || 'Registration failed');
