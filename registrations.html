@@ -372,9 +372,9 @@
         const videoInput = document.getElementById('bhajanVideo');
         if (videoInput.files && videoInput.files[0]) {
           const vFile = videoInput.files[0];
-          const maxSize = 60 * 1024 * 1024; // 35MB to stay within GAS limits
+          const maxSize = 60 * 1024 * 1024; // 60MB limit
           if (vFile.size > maxSize) {
-            throw new Error('Video file size must not exceed 60MB. / ವೀಡಿಯೋ ಗಾತ್ರ 35MB ಗಿಂತ ಹೆಚ್ಚಿರಬಾರದು.');
+            throw new Error('Video file size must not exceed 60MB. / ವೀಡಿಯೋ ಗಾತ್ರ 60MB ಗಿಂತ ಹೆಚ್ಚಿರಬಾರದು.');
           }
           payload.bhajanVideo = await readFileAsBase64(vFile);
         } else {
