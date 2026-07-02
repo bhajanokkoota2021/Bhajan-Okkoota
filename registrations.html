@@ -127,7 +127,7 @@
               <div id="videoPreview" class="space-y-2">
                 <i data-lucide="video" class="w-10 h-10 text-orange-400 mx-auto"></i>
                 <p class="text-sm text-slate-600 font-medium">Click to upload Bhajan video</p>
-                <p class="text-xs text-slate-400">MP4, MOV (Max 50MB)</p>
+                <p class="text-xs text-slate-400">MP4, MOV (Max 60MB)</p>
               </div>
             </div>
           </div>
@@ -372,9 +372,9 @@
         const videoInput = document.getElementById('bhajanVideo');
         if (videoInput.files && videoInput.files[0]) {
           const vFile = videoInput.files[0];
-          const maxSize = 50 * 1024 * 1024; // 50MB upload limit
+          const maxSize = 35 * 1024 * 1024; // 35MB to stay within GAS limits
           if (vFile.size > maxSize) {
-            throw new Error('Video file size must not exceed 50MB. / ವೀಡಿಯೋ ಗಾತ್ರ 50MB ಗಿಂತ ಹೆಚ್ಚಿರಬಾರದು.');
+            throw new Error('Video file size must not exceed 35MB. / ವೀಡಿಯೋ ಗಾತ್ರ 35MB ಗಿಂತ ಹೆಚ್ಚಿರಬಾರದು.');
           }
           payload.bhajanVideo = await readFileAsBase64(vFile);
         } else {
@@ -418,7 +418,7 @@
           document.getElementById('videoPreview').innerHTML = `
             <i data-lucide="video" class="w-10 h-10 text-orange-400 mx-auto"></i>
             <p class="text-sm text-slate-600 font-medium">Click to upload Bhajan video</p>
-            <p class="text-xs text-slate-400">MP4, MOV (Max 50MB)</p>
+            <p class="text-xs text-slate-400">MP4, MOV (Max 35MB)</p>
           `;
           document.getElementById('bhajanVideo').closest('.upload-box').classList.remove('has-file');
           lucide.createIcons();
