@@ -88,7 +88,7 @@
               <p class="text-sm text-orange-700 font-kannada">ಸದಸ್ಯರ ವಿವರಗಳು</p>
             </div>
           </div>
-          <div class="hidden sm:block text-xs text-orange-600 bg-orange-100 px-3 py-1 rounded-full font-medium">Exactly 10 Required</div>
+          <div class="hidden sm:block text-xs text-orange-600 bg-orange-100 px-3 py-1 rounded-full font-medium">8-10 Members Required</div>
         </div>
         <div class="p-8">
           <div id="membersContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
@@ -121,13 +121,13 @@
             </p>
           </div>
           <div>
-            <label class="block text-sm font-semibold text-slate-700 mb-2">Bhajan Video / ಭಜನಾ ವೀಡಿಯೋ <span class="text-red-500">*</span></label>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Bhajan Video / ಭಜನಾ ವೀಡಿಯೋ<span class="text-red-500">*</span></label>
             <div class="upload-box rounded-xl p-6 text-center cursor-pointer relative" onclick="document.getElementById('bhajanVideo').click()">
               <input type="file" id="bhajanVideo" accept="video/*" required class="hidden" onchange="handleFileSelect(this, 'videoPreview')">
               <div id="videoPreview" class="space-y-2">
                 <i data-lucide="video" class="w-10 h-10 text-orange-400 mx-auto"></i>
                 <p class="text-sm text-slate-600 font-medium">Click to upload Bhajan video</p>
-                <p class="text-xs text-slate-400">MP4, MOV (Max 60MB)</p>
+                <p class="text-xs text-slate-400">MP4, MOV (Max 100MB)</p>
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
             <div class="flex flex-col items-center text-center bg-amber-50/50 rounded-2xl p-6 border border-amber-100">
               <h3 class="font-bold text-orange-900 mb-1">Scan to Pay ₹1,000/-</h3>
-              <p class="text-xs text-orange-700 mb-4 font-kannada">QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</p>
+              <p class="text-xs text-orange-700 mb-4 font-kannada">QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</</p>
               <div class="bg-white p-3 rounded-2xl shadow-md border border-amber-200 mb-4">
                 <img src="https://github.com/bhajanokkoota2021/Bhajan-Okkoota/blob/main/WhatsApp%20Image%202026-06-07%20at%209.19.42%20PM.jpeg?raw=true"
      alt="QR Code"
@@ -202,6 +202,10 @@
           <i data-lucide="check-circle" class="w-10 h-10 text-green-600"></i>
         </div>
         <h3 class="text-2xl font-bold text-orange-900 mb-2">Registration Submitted!</h3>
+        <div class="bg-orange-50 border border-orange-200 rounded-xl px-4 py-3 mb-4">
+          <p class="text-xs font-semibold text-orange-700 uppercase tracking-wide">Booking Confirm ID</p>
+          <p id="bookingConfirmId" class="text-xl font-bold text-orange-900 mt-1"></p>
+        </div>
         <p class="text-slate-600 mb-2">Your registration has been submitted. We will review it and will send you a message of confirmation.</p>
         <p class="text-orange-700 font-kannada text-sm">ನಿಮ್ಮ ನೋಂದಣಿ ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ. ನಾವು ಅದನ್ನು ಪರಿಶೀಲಿಸಿ ದೃಢೀಕರಣ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.</p>
         <a href="index.html" class="mt-8 inline-flex items-center gap-2 bg-orange-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-orange-700 transition-all shadow-lg">
@@ -338,110 +342,198 @@
         reader.readAsDataURL(file);
       });
     }
-    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwDlb9n9GAoDb3PStY6zFQZvgjFEugM83l_z_vD1AZNUCyD_HE8GgNFeaamrFF5xdXCsw/exec';
-    document.getElementById('registrationForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const overlay = document.getElementById('loadingOverlay');
-      const spinner = document.getElementById('loadingSpinner');
-      const successMsg = document.getElementById('successMessage');
-      const btn = document.getElementById('submitBtn');
-      const originalHTML = btn.innerHTML;
+    const CLOUDINARY_CLOUD_NAME = 'kmlzcyvu';
+const CLOUDINARY_UPLOAD_PRESET = 'BMOSUPLOAD';
+const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/9c36143wy3731';
+const MAX_VIDEO_SIZE = 100 * 1024 * 1024;
+const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
 
-      overlay.classList.remove('hidden');
-      spinner.classList.remove('hidden');
-      successMsg.classList.add('hidden');
-      btn.disabled = true;
-      btn.innerHTML = '<span class="animate-pulse">Uploading & Registering...</span>';
+function showUploadProgress(message) {
+  const status = document.getElementById('submitStatus');
+  status.textContent = message;
+  status.className = 'mb-4 text-sm font-medium text-center py-3 px-4 rounded-lg bg-white/20 text-white block';
+}
 
-      try {
-        if (GAS_WEB_APP_URL.includes('YOUR_GAS')) {
-          throw new Error('Please configure the Google Apps Script URL in the code.');
-        }
-        const payload = {
-          action: 'register',
-          mandalName: document.getElementById('mandalName').value.trim(),
-          mandalAddress: document.getElementById('mandalAddress').value.trim(),
-          contactPerson: document.getElementById('contactPerson').value.trim(),
-          mobile: document.getElementById('mobile').value.trim(),
-          transactionId: document.getElementById('transactionId').value.trim(),
-          paymentScreenshot: '',
-          bhajanVideo: '',
-          members: []
-        };
+async function uploadToCloudinary(file, resourceType, folder) {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  formData.append('folder', folder);
 
-        const videoInput = document.getElementById('bhajanVideo');
-        if (videoInput.files && videoInput.files[0]) {
-          const vFile = videoInput.files[0];
-          const maxSize = 35 * 1024 * 1024; // 35MB to stay within GAS limits
-          if (vFile.size > maxSize) {
-            throw new Error('Video file size must not exceed 35MB. / ವೀಡಿಯೋ ಗಾತ್ರ 35MB ಗಿಂತ ಹೆಚ್ಚಿರಬಾರದು.');
-          }
-          payload.bhajanVideo = await readFileAsBase64(vFile);
-        } else {
-          throw new Error('Please upload the Bhajan video. / ದಯವಿಟ್ಟು ಭಜನಾ ವೀಡಿಯೋವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ.');
-        }
+  const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/${resourceType}/upload`, {
+    method: 'POST',
+    body: formData
+  });
 
-        const paymentInput = document.getElementById('paymentScreenshot');
-        if (paymentInput.files && paymentInput.files[0]) {
-          payload.paymentScreenshot = await resizeImage(paymentInput.files[0], 1200, 0.8);
-        }
+  const result = await response.json();
+  if (!response.ok || !result.secure_url) {
+    throw new Error(result.error?.message || 'Cloudinary upload failed. Please try again.');
+  }
 
-        for (let i = 1; i <= memberCount; i++) {
-          const nameInput = document.querySelector(`input[name="memberName_${i}"]`);
-          const aadhaarInput = document.getElementById(`aadhaar_${i}`);
-          const photoInput = document.getElementById(`photo_${i}`);
-          if (!nameInput) continue;
-          const member = { name: nameInput.value.trim(), aadhaar: '', photo: '' };
-          if (aadhaarInput && aadhaarInput.files[0]) member.aadhaar = await resizeImage(aadhaarInput.files[0], 1200, 0.8);
-          if (photoInput && photoInput.files[0]) member.photo = await resizeImage(photoInput.files[0], 1200, 0.8);
-          payload.members.push(member);
-        }
+  return {
+    url: result.secure_url,
+    publicId: result.public_id,
+    bytes: result.bytes,
+    format: result.format,
+    originalFilename: result.original_filename || file.name
+  };
+}
 
-        const response = await fetch(GAS_WEB_APP_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain' },
-          body: JSON.stringify(payload)
-        });
-        const result = await response.json();
-        if (result.success) {
-          spinner.classList.add('hidden');
-          successMsg.classList.remove('hidden');
-          lucide.createIcons();
+function validateFile(file, maxSize, label) {
+  if (!file) throw new Error(`Please upload ${label}.`);
+  if (file.size > maxSize) {
+    const maxMb = Math.round(maxSize / 1024 / 1024);
+    throw new Error(`${label} must not exceed ${maxMb}MB.`);
+  }
+}
 
-          e.target.reset();
-          document.getElementById('paymentPreview').innerHTML = `
-            <i data-lucide="upload-cloud" class="w-10 h-10 text-orange-400 mx-auto"></i>
-            <p class="text-sm text-slate-600 font-medium">Click to upload payment screenshot</p>
-            <p class="text-xs text-slate-400">JPG, PNG (Max 5MB)</p>
-          `;
-          document.getElementById('paymentScreenshot').closest('.upload-box').classList.remove('has-file');
-          document.getElementById('videoPreview').innerHTML = `
-            <i data-lucide="video" class="w-10 h-10 text-orange-400 mx-auto"></i>
-            <p class="text-sm text-slate-600 font-medium">Click to upload Bhajan video</p>
-            <p class="text-xs text-slate-400">MP4, MOV (Max 35MB)</p>
-          `;
-          document.getElementById('bhajanVideo').closest('.upload-box').classList.remove('has-file');
-          lucide.createIcons();
+function generateBookingId() {
+  const now = new Date();
+  const datePart = now.toISOString().slice(0, 10).replaceAll('-', '');
+  const randomPart = Math.random().toString(36).slice(2, 8).toUpperCase();
+  return `BMOS-${datePart}-${randomPart}`;
+}
 
-          memberCount = MIN_MEMBERS;
-          renderMembers();
-        } else {
-          throw new Error(result.message || 'Registration failed');
-        }
-      } catch (err) {
-        console.error(err);
-        overlay.classList.add('hidden');
-        const status = document.getElementById('submitStatus');
-        status.textContent = err.message.includes('configure')
-          ? 'Note: Google Sheets integration is pending setup. Please follow the instructions provided with the code.'
-          : 'Error: ' + err.message;
-        status.className = 'mb-4 text-sm font-medium text-center py-3 px-4 rounded-lg bg-red-100 text-red-800 block';
-      } finally {
-        btn.disabled = false;
-        btn.innerHTML = originalHTML;
-        lucide.createIcons();
+function buildSheetRow(payload) {
+  const row = {
+    'Booking ID': payload.bookingId,
+    'Timestamp': payload.submittedAt,
+    'Mandal Name': payload.mandalName,
+    'Address': payload.mandalAddress,
+    'Contact Person': payload.contactPerson,
+    'Mobile': payload.mobile,
+    'Transaction ID': payload.transactionId,
+    'Payment Screenshot': payload.paymentScreenshot.url,
+    'Bhajan Video': payload.bhajanVideo.url
+  };
+
+  for (let i = 1; i <= 10; i++) {
+    const member = payload.members[i - 1] || {};
+    row[`M${i} Name`] = member.name || '';
+    row[`M${i} Aadhaar`] = member.aadhaar?.url || '';
+    row[`M${i} Photo`] = member.photo?.url || '';
+  }
+
+  return row;
+}
+
+async function saveToSheetDB(row) {
+  const response = await fetch(SHEETDB_API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ data: [row] })
+  });
+
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(result.error || result.message || 'Could not save registration to Google Sheets.');
+  }
+  return result;
+}
+
+document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const overlay = document.getElementById('loadingOverlay');
+  const spinner = document.getElementById('loadingSpinner');
+  const successMsg = document.getElementById('successMessage');
+  const btn = document.getElementById('submitBtn');
+  const originalHTML = btn.innerHTML;
+  const bookingId = generateBookingId();
+
+  overlay.classList.remove('hidden');
+  spinner.classList.remove('hidden');
+  successMsg.classList.add('hidden');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="animate-pulse">Uploading & Registering...</span>';
+  showUploadProgress('Starting upload...');
+
+  try {
+    const videoInput = document.getElementById('bhajanVideo');
+    const paymentInput = document.getElementById('paymentScreenshot');
+
+    validateFile(videoInput.files[0], MAX_VIDEO_SIZE, 'Bhajan video');
+    validateFile(paymentInput.files[0], MAX_IMAGE_SIZE, 'Payment screenshot');
+
+    const payload = {
+      submittedAt: new Date().toISOString(),
+      bookingId,
+      mandalName: document.getElementById('mandalName').value.trim(),
+      mandalAddress: document.getElementById('mandalAddress').value.trim(),
+      contactPerson: document.getElementById('contactPerson').value.trim(),
+      mobile: document.getElementById('mobile').value.trim(),
+      transactionId: document.getElementById('transactionId').value.trim(),
+      bhajanVideo: null,
+      paymentScreenshot: null,
+      members: []
+    };
+
+    showUploadProgress('Uploading Bhajan video to Cloudinary...');
+    payload.bhajanVideo = await uploadToCloudinary(videoInput.files[0], 'video', `bmos/${bookingId}/video`);
+
+    showUploadProgress('Uploading payment screenshot...');
+    payload.paymentScreenshot = await uploadToCloudinary(paymentInput.files[0], 'image', `bmos/${bookingId}/payment`);
+
+    for (let i = 1; i <= memberCount; i++) {
+      const nameInput = document.querySelector(`input[name="memberName_${i}"]`);
+      const aadhaarInput = document.getElementById(`aadhaar_${i}`);
+      const photoInput = document.getElementById(`photo_${i}`);
+      if (!nameInput) continue;
+
+      const name = nameInput.value.trim();
+      if (i <= MIN_MEMBERS && !name) throw new Error(`Member ${i} name is required.`);
+      if (i <= MIN_MEMBERS) {
+        validateFile(aadhaarInput.files[0], MAX_IMAGE_SIZE, `Member ${i} Aadhaar image`);
+        validateFile(photoInput.files[0], MAX_IMAGE_SIZE, `Member ${i} photograph`);
       }
-    });
-  </script>
+
+      const member = { name, aadhaar: null, photo: null };
+      if (aadhaarInput.files[0]) {
+        showUploadProgress(`Uploading Member ${i} Aadhaar...`);
+        member.aadhaar = await uploadToCloudinary(aadhaarInput.files[0], 'image', `bmos/${bookingId}/members/member-${i}/aadhaar`);
+      }
+      if (photoInput.files[0]) {
+        showUploadProgress(`Uploading Member ${i} photograph...`);
+        member.photo = await uploadToCloudinary(photoInput.files[0], 'image', `bmos/${bookingId}/members/member-${i}/photo`);
+      }
+      payload.members.push(member);
+    }
+
+    showUploadProgress('Saving registration to Google Sheets...');
+    await saveToSheetDB(buildSheetRow(payload));
+
+    spinner.classList.add('hidden');
+    successMsg.classList.remove('hidden');
+    document.getElementById('bookingConfirmId').textContent = bookingId;
+    lucide.createIcons();
+
+    e.target.reset();
+    document.getElementById('paymentPreview').innerHTML = `
+      <i data-lucide="upload-cloud" class="w-10 h-10 text-orange-400 mx-auto"></i>
+      <p class="text-sm text-slate-600 font-medium">Click to upload payment screenshot</p>
+      <p class="text-xs text-slate-400">JPG, PNG (Max 5MB)</p>
+    `;
+    document.getElementById('paymentScreenshot').closest('.upload-box').classList.remove('has-file');
+    document.getElementById('videoPreview').innerHTML = `
+      <i data-lucide="video" class="w-10 h-10 text-orange-400 mx-auto"></i>
+      <p class="text-sm text-slate-600 font-medium">Click to upload Bhajan video</p>
+      <p class="text-xs text-slate-400">MP4, MOV (Max 100MB)</p>
+    `;
+    document.getElementById('bhajanVideo').closest('.upload-box').classList.remove('has-file');
+    document.querySelectorAll('.upload-box').forEach(box => box.classList.remove('has-file'));
+    memberCount = 10;
+    renderMembers();
+  } catch (err) {
+    console.error(err);
+    overlay.classList.add('hidden');
+    const status = document.getElementById('submitStatus');
+    status.textContent = 'Error: ' + err.message;
+    status.className = 'mb-4 text-sm font-medium text-center py-3 px-4 rounded-lg bg-red-100 text-red-800 block';
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = originalHTML;
+    lucide.createIcons();
+  }
+});
+</script>
 </body>
 </html>
