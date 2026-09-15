@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Closed | Maharashtra State-Level Bhajan Competition 2026</title>
+    <meta name="description" content="Registration is officially closed for Maharashtra State-Level Bhajan Competition 2026 organized by Bhajan Mandaligala Okkootada Sanstha (Regd.), Mumbai.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Marcellus&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           BHANJAN MANDALIGALA OKKOOTADA SANSTHA - ALL-IN-ONE STYLESHEET
+           ========================================================================== */
+
+        :root {
+            /* Color Palette */
+            --bg-primary: #fffdf6;
+            --bg-secondary: #fbf5e8;
+            --bg-card: #ffffff;
+            --bg-card-glass: rgba(255, 255, 255, 0.92);
+            
+            --maroon-primary: #7a1d1d;
+            --maroon-dark: #520f0f;
+            --maroon-light: #9e2a2a;
+
+            --gold-primary: #d4952b;
+            --gold-light: #f5e4b3;
+            --gold-dark: #a86f14;
+
+            --amber-bg: #fff8e8;
+            --amber-border: #ebd197;
+
+            --red-closed: #c5221f;
+            --red-closed-bg: #fce8e6;
+            --red-closed-border: #f5c2c0;
+
+            --text-primary: #2d1810;
+            --text-secondary: #5c473c;
+            --text-muted: #8c7365;
+
+            --shadow-soft: 0 10px 30px rgba(122, 29, 29, 0.06);
+            --shadow-medium: 0 15px 35px rgba(82, 15, 15, 0.12);
+            --shadow-glow: 0 0 25px rgba(212, 149, 43, 0.25);
+
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+
+            --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Reset & Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 149, 43, 0.06) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(122, 29, 29, 0.06) 0%, transparent 45%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Main Wrapper */
+        .main-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .branding-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .side-illustration {
+            width: 130px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            box-shadow: 0 8px 25px rgba(122, 29, 29, 0.12);
+            border: 3px solid #ffffff;
+            background: #fff;
+            padding: 4px;
+            transition: var(--transition-standard);
+        }
+
+        .side-illustration:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .center-logo-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 550px;
+        }
+
+        .logo-circle-wrapper {
+            position: relative;
+            width: 115px;
+            height: 115px;
+            margin-bottom: 14px;
+        }
+
+        .logo-circle-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--gold-primary);
+            box-shadow: 0 0 25px rgba(212, 149, 43, 0.35);
+            background: #fff;
+            padding: 3px;
+        }
+
+        .org-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--maroon-primary);
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            text-transform: capitalize;
+        }
+
+        .org-tagline {
+            font-family: 'Marcellus', serif;
+            font-size: 1.05rem;
+            color: var(--gold-dark);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Event Title Box */
+        .event-title-box {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .year-badge {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: #ffffff;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 20px;
+            border-radius: var(--radius-full);
+            display: inline-block;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(212, 149, 43, 0.3);
+        }
+
+        .event-main-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--maroon-dark);
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .event-kannada-heading {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            background: var(--amber-bg);
+            border: 1px solid var(--amber-border);
+            color: var(--maroon-primary);
+            padding: 6px 24px;
+            border-radius: var(--radius-full);
+            font-size: 1.05rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* HERO REGISTRATION CLOSED NOTICE */
+        .closed-notice-card {
+            background: var(--bg-card-glass);
+            backdrop-filter: blur(12px);
+            border: 2px solid var(--red-closed-border);
+            border-radius: var(--radius-lg);
+            padding: 30px 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(197, 34, 31, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-standard);
+        }
+
+        .closed-notice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--red-closed);
+        }
+
+        .closed-header-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .closed-badge-pill {
+            background: var(--red-closed-bg);
+            border: 1.5px solid var(--red-closed-border);
+            color: var(--red-closed);
+            padding: 6px 18px;
+            border-radius: var(--radius-full);
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .closed-badge-pill .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--red-closed);
+            border-radius: 50%;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(197, 34, 31, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(197, 34, 31, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(197, 34, 31, 0); }
+        }
+
+        .closed-main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--red-closed);
+        }
+
+        .closed-notice-text-en {
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .closed-notice-text-kn {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            background: rgba(122, 29, 29, 0.03);
+            padding: 12px 18px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--gold-primary);
+        }
+
+        /* BILINGUAL DETAILS CARDS SECTION */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .details-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 149, 43, 0.25);
+            border-radius: var(--radius-lg);
+            padding: 28px 26px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-standard);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .details-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--gold-primary);
+        }
+
+        .lang-badge {
+            align-self: flex-start;
+            background: #e65100;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .lang-badge.kannada-tag {
+            background: #d84315;
+            font-family: 'Noto Sans Kannada', sans-serif;
+        }
+
+        .card-title-en {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--maroon-primary);
+            margin-bottom: 14px;
+        }
+
+        .card-title-kn {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--maroon-primary);
+            margin-bottom: 14px;
+        }
+
+        .competition-lead-en {
+            font-weight: 700;
+            color: var(--maroon-dark);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .competition-desc-en {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.55;
+        }
+
+        .competition-lead-kn {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-weight: 700;
+            color: var(--maroon-dark);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .competition-desc-kn {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Grand Prizes Inner Box */
+        .prizes-box {
+            background: var(--amber-bg);
+            border: 1px solid var(--amber-border);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            margin-bottom: 20px;
+        }
+
+        .prizes-box-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: var(--maroon-primary);
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(212, 149, 43, 0.2);
+        }
+
+        .prizes-box-header.kannada {
+            font-family: 'Noto Sans Kannada', sans-serif;
+        }
+
+        .prize-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .prize-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.88rem;
+        }
+
+        .prize-rank {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .prize-rank.kn {
+            font-family: 'Noto Sans Kannada', sans-serif;
+        }
+
+        .prize-rank span {
+            color: var(--maroon-primary);
+        }
+
+        .prize-val {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .consolation-item {
+            background: rgba(212, 149, 43, 0.12);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            margin-top: 4px;
+            font-weight: 700;
+            color: var(--maroon-primary);
+        }
+
+        .card-footer-note {
+            font-style: italic;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 12px;
+        }
+
+        .card-footer-note.kn {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            font-style: normal;
+        }
+
+        /* ACTION BUTTONS (VIEW RULES DRIVE LINK) */
+        .action-buttons-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        .btn-link-drive {
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-standard);
+            box-shadow: 0 6px 20px rgba(122, 29, 29, 0.22);
+        }
+
+        .btn-link-drive:hover {
+            background: linear-gradient(135deg, var(--maroon-light), var(--maroon-primary));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(122, 29, 29, 0.35);
+            color: #ffffff;
+        }
+
+        /* FOOTER & CONTACT */
+        .footer-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 149, 43, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-info h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--maroon-primary);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .footer-info p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .contact-pills-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .contact-pill {
+            background: var(--amber-bg);
+            border: 1px solid var(--amber-border);
+            color: var(--maroon-primary);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: var(--transition-standard);
+        }
+
+        .contact-pill:hover {
+            background: var(--maroon-primary);
+            color: #ffffff;
+        }
+
+        .copyright-sub-bar {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .branding-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .side-illustration {
+                display: none;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .org-title {
+                font-size: 1.6rem;
+            }
+
+            .event-main-heading {
+                font-size: 1.4rem;
+            }
+
+            .closed-notice-card {
+                padding: 20px;
+            }
+
+            .footer-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content Container -->
+    <main class="main-wrapper">
+
+        <!-- Header Section with Art & Logo -->
+        <header class="header-section">
+            <div class="branding-container">
+                <!-- Left Side Illustration -->
+                <img src="https://github.com/bhajanokkoota2021/Bhajan-Okkoota/blob/main/WhatsApp%20Image%202026-05-27%20at%205.27.07%20PM.jpeg?raw=true" alt="Traditional Haridasa Bhajan Singer with Tambura" class="side-illustration" width="130" height="150">
+                
+                <!-- Center Logo & Branding -->
+                <div class="center-logo-box">
+                    <div class="logo-circle-wrapper">
+                        <img src="https://github.com/bhajanokkoota2021/Bhajan-Okkoota/blob/main/WhatsApp%20Image%202026-05-23%20at%206.51.39%20PM.jpeg?raw=true" alt="Bhajan Mandaligala Okkootada Sanstha Logo" width="115" height="115">
+                    </div>
+                    <h1 class="org-title">Bhajan Mandaligala Okkootada Sanstha</h1>
+                    <p class="org-tagline">Spreading Devotion Through Music</p>
+                </div>
+
+                <!-- Right Side Illustration -->
+                <img src="https://github.com/bhajanokkoota2021/Bhajan-Okkoota/blob/main/WhatsApp%20Image%202026-07-03%20at%203.17.01%20PM.jpeg?raw=true" alt="Traditional Musician playing Chipli Cymbals" class="side-illustration" width="130" height="150">
+            </div>
+
+            <!-- Event Title Section -->
+            <div class="event-title-box">
+                <span class="year-badge">2026</span>
+                <h2 class="event-main-heading">Maharashtra State-Level Bhajan Competition</h2>
+                <div class="event-kannada-heading">
+                    ಮಹಾರಾಷ್ಟ್ರ ರಾಜ್ಯ ಮಟ್ಟದ ಭಜನಾ ಸ್ಪರ್ಧೆ 2026
+                </div>
+            </div>
+        </header>
+
+        <!-- REGISTRATION CLOSED HERO NOTICE CARD -->
+        <section class="closed-notice-card" aria-labelledby="closed-notice-title">
+            <div class="closed-header-row">
+                <div class="closed-badge-pill">
+                    <span class="pulse-dot"></span>
+                    Registration Status: CLOSED
+                </div>
+                <h3 id="closed-notice-title" class="closed-main-title">Registrations Are Now Closed</h3>
+            </div>
+
+            <p class="closed-notice-text-en">
+                <strong>Notice:</strong> Online registration for the <em>Maharashtra State-Level Bhajan Competition 2026</em> has officially closed.
+            </p>
+
+            <div class="closed-notice-text-kn">
+                <strong>ಸೂಚನೆ:</strong> ಮಹಾರಾಷ್ಟ್ರ ರಾಜ್ಯ ಮಟ್ಟದ ಭಜನಾ ಸ್ಪರ್ಧೆ 2026ರ ಆನ್‌ಲೈನ್ ನೋಂದಣಿ ಅಧಿಕೃತವಾಗಿ ಮುಕ್ತಾಯಗೊಂಡಿದೆ..
+            </div>
+        </section>
+
+        <!-- BILINGUAL DETAILS CARDS SECTION -->
+        <section class="cards-grid" aria-label="Competition Details">
+
+            <!-- English Card -->
+            <article class="details-card">
+                <div>
+                    <span class="lang-badge">ENGLISH</span>
+                    <h3 class="card-title-en">Competition Details</h3>
+                    <p class="competition-lead-en">
+                        A State-Level Bhajan Competition is being organized by the Bhajan Mandaligala Okkootada Sansthe (Regd.), Mumbai.
+                    </p>
+                    <p class="competition-desc-en">
+                        Bhajan Mandalis from all 38 districts of Maharashtra will participate, with around 500 Bhajan Mandalis expected to compete. From these, 30 finalists will be selected.
+                    </p>
+
+                    <!-- Grand Prizes Box -->
+                    <div class="prizes-box">
+                        <div class="prizes-box-header">
+                            <span>🏆</span> Grand Prizes
+                        </div>
+                        <ul class="prize-list">
+                            <li class="prize-item">
+                                <span class="prize-rank"><span>1st:</span> ₹1,00,000/-</span>
+                                <span class="prize-val">and Trophy</span>
+                            </li>
+                            <li class="prize-item">
+                                <span class="prize-rank"><span>2nd:</span> ₹75,000/-</span>
+                                <span class="prize-val">and Trophy</span>
+                            </li>
+                            <li class="prize-item">
+                                <span class="prize-rank"><span>3rd:</span> ₹50,000/-</span>
+                                <span class="prize-val">and Trophy</span>
+                            </li>
+                            <li class="prize-item consolation-item">
+                                <span class="prize-rank"><span>7 Consolation Prizes:</span></span>
+                                <span class="prize-val">₹5,000/- each</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-footer-note">
+                    Participation requires a clear understanding of the rules and guidelines.
+                </div>
+            </article>
+
+            <!-- Kannada Card -->
+            <article class="details-card">
+                <div>
+                    <span class="lang-badge kannada-tag">ಕನ್ನಡ</span>
+                    <h3 class="card-title-kn">ಸ್ಪರ್ಧೆಯ ವಿವರಗಳು</h3>
+                    <p class="competition-lead-kn">
+                        ಭಜನ ಮಂಡಳಿಯ ಒಕ್ಕೂಟದ ಸಂಸ್ಥೆ(ರಿ.) ಮುಂಬಯಿ ಸಂಸ್ಥೆಯಿಂದ ಆಯೋಜಿಸಲಾದ ರಾಜ್ಯ ಮಟ್ಟದ ಭಜನಾ ಸ್ಪರ್ಧೆ.
+                    </p>
+                    <p class="competition-desc-kn">
+                        ಮಹಾರಾಷ್ಟ್ರದ 36 ಜಿಲ್ಲೆಗಳಿಂದ 500 ಭಜನಾ ಮಂಡಳಿಗಳು ಭಾಗವಹಿಸುವ - ಅದರಲ್ಲಿ 30 ಅಂತಿಮ ಸ್ಪರ್ಧಿಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಲಾಗುತ್ತದೆ.
+                    </p>
+
+                    <!-- Grand Prizes Box in Kannada -->
+                    <div class="prizes-box">
+                        <div class="prizes-box-header kannada">
+                            <span>🏆</span> ಭವ್ಯ ಬಹುಮಾನಗಳು
+                        </div>
+                        <ul class="prize-list">
+                            <li class="prize-item">
+                                <span class="prize-rank kn"><span>ಮೊದಲ ಬಹುಮಾನ:</span> ₹1,00,000/-</span>
+                                <span class="prize-val">ಹಾಗೂ ಪಂಥ</span>
+                            </li>
+                            <li class="prize-item">
+                                <span class="prize-rank kn"><span>ದ್ವಿತೀಯ ಬಹುಮಾನ:</span> ₹75,000/-</span>
+                                <span class="prize-val">ಹಾಗೂ ಪಂಥ</span>
+                            </li>
+                            <li class="prize-item">
+                                <span class="prize-rank kn"><span>ತೃತೀಯ ಬಹುಮಾನ:</span> ₹50,000/-</span>
+                                <span class="prize-val">ಹಾಗೂ ಪಂಥ</span>
+                            </li>
+                            <li class="prize-item consolation-item">
+                                <span class="prize-rank kn"><span>7 ಸಮಾಧಾನಕರ ಬಹುಮಾನಗಳು:</span></span>
+                                <span class="prize-val">ತಲಾ ₹5,000/-</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-footer-note kn">
+                    ಭಾಗವಹಿಸಲು ನಿಯಮಗಳನ್ನು ತಿಳಿಯುವುದು ಅತ್ಯಗತ್ಯ.
+                </div>
+            </article>
+
+        </section>
+
+        <!-- ACTION BUTTON FOR GOOGLE DRIVE RULES & GUIDELINES LINK -->
+        <div class="action-buttons-row">
+            <a href="https://drive.google.com/file/d/1XgrmCE6tzTFETlcEvG4sZb3hS7KpO7Gh/view" target="_blank" rel="noopener noreferrer" class="btn-link-drive">
+                <span>📜</span> View Rules & Guidelines / ನಿಯಮಾವಳಿಗಳು
+            </a>
+        </div>
+
+        <!-- FOOTER & CONTACT -->
+        <footer class="footer-card">
+            <div class="footer-info">
+                <h4>Bhajan Mandaligala Okkootada Sanstha (Regd.), Mumbai</h4>
+                <p>Spreading Devotion & Preserving Cultural Heritage Through Music.</p>
+            </div>
+            <div class="contact-pills-group">
+                <a href="tel:+919152242599" class="contact-pill">📞 Helpline: +91 91522 42599</a>
+                <a href="mailto:bhajanmandaligalaokkoota@gmail.com" class="contact-pill">✉️ bhajanmandaligalaokkoota@gmail.com</a>
+            </div>
+        </footer>
+
+        <div class="copyright-sub-bar">
+            &copy; 2026 Bhajan Mandaligala Okkootada Sanstha (Regd.), Mumbai. All Rights Reserved.
+        </div>
+
+    </main>
+
+</body>
+</html>
